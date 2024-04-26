@@ -22,6 +22,7 @@ personagens = []
 async def obter_personagens():
     return personagens
 
+
 @router.post("/personagem/criar")
 async def criar_personagem_com_imagem(
     imagem: UploadFile = File(...),
@@ -36,6 +37,7 @@ async def criar_personagem_com_imagem(
         personagens.append(personagem)
     return {"mensagem": "Imagem carregada com sucesso"}
 
+
 @router.get("/personagens/{nome_personagem}")
 async def obter_imagem_personagem(nome_personagem: str):
     for personagem in personagens:
@@ -46,6 +48,7 @@ async def obter_imagem_personagem(nome_personagem: str):
             else:
                 return {"erro": "Imagem não encontrada para este personagem"}
     return {"erro": "Personagem não encontrado"}
+
 
 @router.put("/personagens/{nome_personagem}")
 async def atualizar_personagem(nome_personagem: str, personagem_atualizado: Personagem):
@@ -63,6 +66,7 @@ async def atualizar_personagem(nome_personagem: str, personagem_atualizado: Pers
 
             return {"mensagem": f"Personagem {nome_personagem} atualizado com sucesso", "personagem": personagem}
     raise HTTPException(status_code=404, detail=f"Personagem {nome_personagem} não encontrado")
+
 
 @router.delete("/personagens/{nome_personagem}")
 async def deletar_personagem(nome_personagem: str):
