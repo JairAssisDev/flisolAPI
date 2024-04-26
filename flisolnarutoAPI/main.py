@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 import uvicorn
 
-from character.model.character_router import router as character_router  # Corrija a importação aqui
+from character.model.character_router import router as character_router  
 
 app = FastAPI()
 
