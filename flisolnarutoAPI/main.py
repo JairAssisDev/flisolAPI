@@ -7,7 +7,7 @@ app = FastAPI()
 
 @app.get("/flisol")
 def main() -> str:
-    return "oi galera"
+    return "Oi galera do Flisol"
 
 app.include_router(character_router)
 
